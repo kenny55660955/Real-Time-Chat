@@ -12,13 +12,22 @@
 		8845ACB2B1B46DB1B9CC9AAE /* Pods_Real_Time_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5CA7192C03ACA4A2404934B /* Pods_Real_Time_Chat.framework */; };
 		ADC2E9E72589DA2500611349 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2E9E62589DA2500611349 /* AppDelegate.swift */; };
 		ADC2E9E92589DA2500611349 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2E9E82589DA2500611349 /* SceneDelegate.swift */; };
-		ADC2E9EB2589DA2500611349 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2E9EA2589DA2500611349 /* ViewController.swift */; };
+		ADC2E9EB2589DA2500611349 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2E9EA2589DA2500611349 /* ChatViewController.swift */; };
 		ADC2E9F02589DA2800611349 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADC2E9EF2589DA2800611349 /* Assets.xcassets */; };
 		ADC2E9F32589DA2800611349 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC2E9F12589DA2800611349 /* LaunchScreen.storyboard */; };
 		ADC2E9FE2589DA2900611349 /* Real_Time_ChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2E9FD2589DA2900611349 /* Real_Time_ChatTests.swift */; };
 		ADC2EA092589DA2900611349 /* Real_Time_ChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2EA082589DA2900611349 /* Real_Time_ChatUITests.swift */; };
 		ADC2EA712589E33000611349 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADC2EA702589E33000611349 /* GoogleService-Info.plist */; };
 		ADC2EA762589E4C100611349 /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2EA752589E4C100611349 /* ChannelViewController.swift */; };
+		ADC2EA9F258A12C900611349 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2EA9E258A12C900611349 /* Message.swift */; };
+		ADC2EAA4258A12D000611349 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2EAA3258A12D000611349 /* Chat.swift */; };
+		ADC2EAA9258AE20500611349 /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2EAA8258AE20500611349 /* Sender.swift */; };
+		ADC2EB06258AEC3100611349 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2EB05258AEC3100611349 /* LoginViewController.swift */; };
+		ADC2EB0E258AEC4000611349 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2EB0D258AEC4000611349 /* RegisterViewController.swift */; };
+		ADC2EB13258AEC6F00611349 /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2EB12258AEC6F00611349 /* PhotoViewerViewController.swift */; };
+		ADC2EB18258AEC7C00611349 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2EB17258AEC7C00611349 /* VideoPlayerViewController.swift */; };
+		ADC2EB1D258AEC9600611349 /* NewChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2EB1C258AEC9600611349 /* NewChatViewController.swift */; };
+		ADC2EB22258AECA800611349 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2EB21258AECA800611349 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +56,7 @@
 		ADC2E9E32589DA2500611349 /* Real-Time-Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Real-Time-Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADC2E9E62589DA2500611349 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADC2E9E82589DA2500611349 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ADC2E9EA2589DA2500611349 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ADC2E9EA2589DA2500611349 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		ADC2E9EF2589DA2800611349 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADC2E9F22589DA2800611349 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADC2E9F42589DA2800611349 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +68,15 @@
 		ADC2EA0A2589DA2900611349 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADC2EA702589E33000611349 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ADC2EA752589E4C100611349 /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
+		ADC2EA9E258A12C900611349 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		ADC2EAA3258A12D000611349 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		ADC2EAA8258AE20500611349 /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
+		ADC2EB05258AEC3100611349 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		ADC2EB0D258AEC4000611349 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		ADC2EB12258AEC6F00611349 /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
+		ADC2EB17258AEC7C00611349 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		ADC2EB1C258AEC9600611349 /* NewChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatViewController.swift; sourceTree = "<group>"; };
+		ADC2EB21258AECA800611349 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CEEE935F6B5B1FBC722B5C14 /* Pods-Real-Time-ChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Real-Time-ChatTests.debug.xcconfig"; path = "Target Support Files/Pods-Real-Time-ChatTests/Pods-Real-Time-ChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5CA7192C03ACA4A2404934B /* Pods_Real_Time_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Real_Time_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3E46507C76E617BC54ECC09 /* Pods-Real-Time-Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Real-Time-Chat.debug.xcconfig"; path = "Target Support Files/Pods-Real-Time-Chat/Pods-Real-Time-Chat.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,10 +159,11 @@
 		ADC2E9E52589DA2500611349 /* Real-Time-Chat */ = {
 			isa = PBXGroup;
 			children = (
+				ADC2EAEA258AEB1400611349 /* ViewModel */,
+				ADC2EA9D258A12BE00611349 /* Models */,
 				ADC2EA1B2589DA5800611349 /* ViewController */,
 				ADC2EA1A2589DA4C00611349 /* View */,
 				ADC2EA192589DA4000611349 /* Support */,
-				ADC2E9EF2589DA2800611349 /* Assets.xcassets */,
 				ADC2EA702589E33000611349 /* GoogleService-Info.plist */,
 				ADC2E9F42589DA2800611349 /* Info.plist */,
 			);
@@ -181,6 +200,7 @@
 		ADC2EA1A2589DA4C00611349 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ADC2E9EF2589DA2800611349 /* Assets.xcassets */,
 				ADC2E9F12589DA2800611349 /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -189,10 +209,33 @@
 		ADC2EA1B2589DA5800611349 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				ADC2E9EA2589DA2500611349 /* ViewController.swift */,
+				ADC2E9EA2589DA2500611349 /* ChatViewController.swift */,
 				ADC2EA752589E4C100611349 /* ChannelViewController.swift */,
+				ADC2EB05258AEC3100611349 /* LoginViewController.swift */,
+				ADC2EB0D258AEC4000611349 /* RegisterViewController.swift */,
+				ADC2EB12258AEC6F00611349 /* PhotoViewerViewController.swift */,
+				ADC2EB17258AEC7C00611349 /* VideoPlayerViewController.swift */,
+				ADC2EB1C258AEC9600611349 /* NewChatViewController.swift */,
+				ADC2EB21258AECA800611349 /* ProfileViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		ADC2EA9D258A12BE00611349 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ADC2EA9E258A12C900611349 /* Message.swift */,
+				ADC2EAA3258A12D000611349 /* Chat.swift */,
+				ADC2EAA8258AE20500611349 /* Sender.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		ADC2EAEA258AEB1400611349 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,7 +250,6 @@
 				ADC2E9E02589DA2500611349 /* Frameworks */,
 				ADC2E9E12589DA2500611349 /* Resources */,
 				24E626B4ECC2D198CD089C72 /* [CP] Embed Pods Frameworks */,
-				DC12DEF6E95E8716182DD8B0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -246,7 +288,6 @@
 				ADC2EA012589DA2900611349 /* Frameworks */,
 				ADC2EA022589DA2900611349 /* Resources */,
 				37FA58DA1BCE9D6C6A27462D /* [CP] Embed Pods Frameworks */,
-				AF8BB720B033EEE8118B470A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -406,23 +447,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AF8BB720B033EEE8118B470A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Real-Time-Chat-Real-Time-ChatUITests/Pods-Real-Time-Chat-Real-Time-ChatUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Real-Time-Chat-Real-Time-ChatUITests/Pods-Real-Time-Chat-Real-Time-ChatUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Real-Time-Chat-Real-Time-ChatUITests/Pods-Real-Time-Chat-Real-Time-ChatUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		DB5F36772C4A0B1A43EF6782 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -445,23 +469,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DC12DEF6E95E8716182DD8B0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Real-Time-Chat/Pods-Real-Time-Chat-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Real-Time-Chat/Pods-Real-Time-Chat-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Real-Time-Chat/Pods-Real-Time-Chat-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -469,8 +476,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADC2E9EB2589DA2500611349 /* ViewController.swift in Sources */,
+				ADC2EB0E258AEC4000611349 /* RegisterViewController.swift in Sources */,
+				ADC2E9EB2589DA2500611349 /* ChatViewController.swift in Sources */,
+				ADC2EAA9258AE20500611349 /* Sender.swift in Sources */,
+				ADC2EAA4258A12D000611349 /* Chat.swift in Sources */,
 				ADC2E9E72589DA2500611349 /* AppDelegate.swift in Sources */,
+				ADC2EB06258AEC3100611349 /* LoginViewController.swift in Sources */,
+				ADC2EA9F258A12C900611349 /* Message.swift in Sources */,
+				ADC2EB1D258AEC9600611349 /* NewChatViewController.swift in Sources */,
+				ADC2EB18258AEC7C00611349 /* VideoPlayerViewController.swift in Sources */,
+				ADC2EB13258AEC6F00611349 /* PhotoViewerViewController.swift in Sources */,
+				ADC2EB22258AECA800611349 /* ProfileViewController.swift in Sources */,
 				ADC2EA762589E4C100611349 /* ChannelViewController.swift in Sources */,
 				ADC2E9E92589DA2500611349 /* SceneDelegate.swift in Sources */,
 			);

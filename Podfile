@@ -7,12 +7,13 @@ target 'Real-Time-Chat' do
 	
 
   # Pods for Real-Time-Chat
-	pod 'GoogleSignIn'
-	pod 'Firebase/Core'
+	
+  	pod 'Firebase/Core'
 	pod 'Firebase/Auth'
-	pod 'MessageKit'
-	pod 'Firebase/Firestore'
-	pod 'SDWebImage'
+	pod 'Firebase/Database'
+	pod 'Firebase/Storage'
+	pod 'Firebase/Analytics'
+	pod 'Firebase/Crashlytics'
 
   target 'Real-Time-ChatTests' do
     inherit! :search_paths

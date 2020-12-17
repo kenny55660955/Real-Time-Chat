@@ -2,7 +2,6 @@
 # platform :ios, '9.0'
 
 target 'Real-Time-Chat' do
-  # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 	
 
@@ -14,14 +13,5 @@ target 'Real-Time-Chat' do
 	pod 'Firebase/Storage'
 	pod 'Firebase/Analytics'
 	pod 'Firebase/Crashlytics'
-
-  target 'Real-Time-ChatTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'Real-Time-ChatUITests' do
-    # Pods for testing
-  end
 
 end

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RegisterViewController: UIViewController {
     
@@ -229,7 +230,18 @@ class RegisterViewController: UIViewController {
             alertUserRegisterError()
             return
         }
-        // TODO: FireBase
+        /// FireBase Log in
+        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+            guard let result = authResult,
+                  error == nil else {
+                print("Current User is Error")
+                return
+            }
+            
+            let user = result.user
+            print("Create User: \(user)")
+        }
+        
     }
     
     
@@ -251,6 +263,7 @@ extension RegisterViewController: UITextFieldDelegate {
         return true
     }
 }
+
 // MARK: - ImagePickerControllerDelegate
 extension RegisterViewController: UIImagePickerControllerDelegate {
     

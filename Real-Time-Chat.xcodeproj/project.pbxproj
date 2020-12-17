@@ -28,6 +28,7 @@
 		ADC2EB18258AEC7C00611349 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2EB17258AEC7C00611349 /* VideoPlayerViewController.swift */; };
 		ADC2EB1D258AEC9600611349 /* NewChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2EB1C258AEC9600611349 /* NewChatViewController.swift */; };
 		ADC2EB22258AECA800611349 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2EB21258AECA800611349 /* ProfileViewController.swift */; };
+		ADC2EB96258AF42200611349 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2EB95258AF42200611349 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		ADC2EB17258AEC7C00611349 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		ADC2EB1C258AEC9600611349 /* NewChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatViewController.swift; sourceTree = "<group>"; };
 		ADC2EB21258AECA800611349 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		ADC2EB95258AF42200611349 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		CEEE935F6B5B1FBC722B5C14 /* Pods-Real-Time-ChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Real-Time-ChatTests.debug.xcconfig"; path = "Target Support Files/Pods-Real-Time-ChatTests/Pods-Real-Time-ChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5CA7192C03ACA4A2404934B /* Pods_Real_Time_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Real_Time_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3E46507C76E617BC54ECC09 /* Pods-Real-Time-Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Real-Time-Chat.debug.xcconfig"; path = "Target Support Files/Pods-Real-Time-Chat/Pods-Real-Time-Chat.debug.xcconfig"; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			children = (
 				ADC2E9E62589DA2500611349 /* AppDelegate.swift */,
 				ADC2E9E82589DA2500611349 /* SceneDelegate.swift */,
+				ADC2EB95258AF42200611349 /* Extension.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -209,13 +212,11 @@
 		ADC2EA1B2589DA5800611349 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				ADC2E9EA2589DA2500611349 /* ChatViewController.swift */,
+				ADC2EB91258AF0C000611349 /* Chat */,
 				ADC2EA752589E4C100611349 /* ChannelViewController.swift */,
-				ADC2EB05258AEC3100611349 /* LoginViewController.swift */,
-				ADC2EB0D258AEC4000611349 /* RegisterViewController.swift */,
+				ADC2EB90258AF0A000611349 /* Login */,
 				ADC2EB12258AEC6F00611349 /* PhotoViewerViewController.swift */,
 				ADC2EB17258AEC7C00611349 /* VideoPlayerViewController.swift */,
-				ADC2EB1C258AEC9600611349 /* NewChatViewController.swift */,
 				ADC2EB21258AECA800611349 /* ProfileViewController.swift */,
 			);
 			path = ViewController;
@@ -236,6 +237,24 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ADC2EB90258AF0A000611349 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				ADC2EB05258AEC3100611349 /* LoginViewController.swift */,
+				ADC2EB0D258AEC4000611349 /* RegisterViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		ADC2EB91258AF0C000611349 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				ADC2E9EA2589DA2500611349 /* ChatViewController.swift */,
+				ADC2EB1C258AEC9600611349 /* NewChatViewController.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -485,6 +504,7 @@
 				ADC2EA9F258A12C900611349 /* Message.swift in Sources */,
 				ADC2EB1D258AEC9600611349 /* NewChatViewController.swift in Sources */,
 				ADC2EB18258AEC7C00611349 /* VideoPlayerViewController.swift in Sources */,
+				ADC2EB96258AF42200611349 /* Extension.swift in Sources */,
 				ADC2EB13258AEC6F00611349 /* PhotoViewerViewController.swift in Sources */,
 				ADC2EB22258AECA800611349 /* ProfileViewController.swift in Sources */,
 				ADC2EA762589E4C100611349 /* ChannelViewController.swift in Sources */,

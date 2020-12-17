@@ -7,7 +7,8 @@
 
 import UIKit
 
-class ChannelViewController: UIViewController {
+
+class ChannelViewController: ChatViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

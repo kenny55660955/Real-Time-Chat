@@ -32,9 +32,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Used to send photos from the Camera.</string>
+	<string>Pleasw Allow Access To Take Profile Photos</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Used to send a photo from your Camera Roll.</string>
+	<string>Pleasw Allow Access To Select Photos</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

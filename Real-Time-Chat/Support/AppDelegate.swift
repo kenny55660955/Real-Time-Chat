@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         /// Issue: 加入這段之後會閃退，分析數據用？
-//        FirebaseApp.configure()
+        FirebaseApp.configure()
         
         return true
     }

@@ -19,7 +19,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         window?.rootViewController = ChatViewController()
         window?.makeKeyAndVisible()
-        FirebaseApp.configure()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

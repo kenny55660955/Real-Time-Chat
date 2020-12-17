@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
     
@@ -56,13 +57,20 @@ class LoginViewController: UIViewController {
     }()
     
     private let loginButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton()
         button.setTitle("Log In", for: .normal)
         button.backgroundColor = .link
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 12
         button.layer.masksToBounds = true
         button.titleLabel?.font = .systemFont(ofSize: 20)
+        return button
+    }()
+    
+    private let fbLoginButton: FBLoginButton = {
+        let button = FBLoginButton()
+        button.layer.cornerRadius = 12
+        button.permissions = ["email,public_profile"]
         return button
     }()
     
@@ -80,7 +88,7 @@ class LoginViewController: UIViewController {
         registerDelegate()
     }
     
- 
+    
     // MARK: - UI Method
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -98,14 +106,19 @@ class LoginViewController: UIViewController {
                                   height: 52)
         
         passwordField.frame = CGRect(x: 30,
-                                  y: emailField.bottom + 10,
-                                  width: scrollView.width - 60,
-                                  height: 52)
+                                     y: emailField.bottom + 10,
+                                     width: scrollView.width - 60,
+                                     height: 52)
         
         loginButton.frame = CGRect(x: 30,
-                                  y: passwordField.bottom + 10,
-                                  width: scrollView.width - 60,
-                                  height: 52)
+                                   y: passwordField.bottom + 10,
+                                   width: scrollView.width - 60,
+                                   height: 52)
+        
+        fbLoginButton.frame = CGRect(x: 30,
+                                     y: loginButton.bottom + 10,
+                                     width: scrollView.width - 60,
+                                     height: 52)
         
     }
     
@@ -124,6 +137,7 @@ class LoginViewController: UIViewController {
     private func registerDelegate() {
         emailField.delegate = self
         passwordField.delegate = self
+        fbLoginButton.delegate = self
     }
     
     private func addSubView() {
@@ -132,6 +146,7 @@ class LoginViewController: UIViewController {
         scrollView.addSubview(emailField)
         scrollView.addSubview(passwordField)
         scrollView.addSubview(loginButton)
+        scrollView.addSubview(fbLoginButton)
     }
     
     private func addButtonAction() {
@@ -173,15 +188,15 @@ class LoginViewController: UIViewController {
         
     }
     
-   private func alertUserLoginError() {
+    private func alertUserLoginError() {
         let alert = UIAlertController(title: "Woops",
                                       message: "Please enter all Info to Log in",
                                       preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: "Dissmiss",
-                                  style: .cancel,
-                                  handler: nil))
-    present(alert, animated: true)
-    
+        alert.addAction(UIAlertAction(title: "Dissmiss",
+                                      style: .cancel,
+                                      handler: nil))
+        present(alert, animated: true)
+        
     }
     
 }
@@ -195,5 +210,63 @@ extension LoginViewController: UITextFieldDelegate {
             didTapLoginButton()
         }
         return true
+    }
+}
+// MARK: FB登入Button Delegate
+extension LoginViewController: LoginButtonDelegate {
+    // 登入
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        
+        guard let token = result?.token?.tokenString else {
+            print("User failed log in with faceBook")
+            return
+        }
+        /// 紀錄FB登入到FireBase
+        let facebookRequest = FBSDKLoginKit.GraphRequest(graphPath: "Me",
+                                                         parameters: ["fields" : "email,name"],
+                                                         tokenString: token,
+                                                         version: nil,
+                                                         httpMethod: .get)
+        facebookRequest.start { (_, result, error) in
+            guard let result = result as? [String: Any],
+                  error == nil else {
+                print("Failed to make Facebook graph request")
+                return
+            }
+            print("\(result)")
+            
+            let creatial = FacebookAuthProvider.credential(withAccessToken: token)
+            
+            Auth.auth().signIn(with: creatial) { [weak self] (authResult, error) in
+                guard let self = self else { return }
+                guard authResult != nil,
+                      error == nil else {
+                    if let error = error {
+                        print("error - \(error)")
+                    }
+                    return
+                }
+                print("\(result)")
+                /// 判斷是否有取得userName 和 email
+                guard let userName = result["name"] as? String,
+                      let email = result["email"] as? String else {
+                    print("Fail to Get Email and name from FB")
+                    return
+                }
+                /// 必須先實體化，如後拿裡面已經轉換的safe mail
+                let user = ChatAppUser(firstName: userName, lastName: userName, emailAddress: email)
+                /// 如果有取得Email 和 userName 就存到DataBase
+                DataBaseManager.shared.userExists(with: user.safeEmail) { (exists) in
+                    if !exists {
+                        DataBaseManager.shared.insertUser(with: ChatAppUser(firstName: userName, lastName: userName, emailAddress: email))
+                    }
+                }
+                self.navigationController?.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    // 登出
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        // no operation
     }
 }

@@ -73,8 +73,14 @@ class LoginViewController: UIViewController {
         view.backgroundColor = .white
         
         setupNaviController()
+        
+        addButtonAction()
+        
+        registerDelegate()
     }
     
+ 
+    // MARK: - UI Method
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -101,7 +107,11 @@ class LoginViewController: UIViewController {
                                   height: 52)
         
     }
-    // MARK: - UI Method
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     private func setupNaviController() {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register",
@@ -110,12 +120,21 @@ class LoginViewController: UIViewController {
                                                             action: #selector(didTapRegister))
     }
     
+    private func registerDelegate() {
+        emailField.delegate = self
+        passwordField.delegate = self
+    }
+    
     private func addSubView() {
         view.addSubview(scrollView)
         scrollView.addSubview(imageView)
         scrollView.addSubview(emailField)
         scrollView.addSubview(passwordField)
         scrollView.addSubview(loginButton)
+    }
+    
+    private func addButtonAction() {
+        loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
     }
     
     
@@ -127,4 +146,41 @@ class LoginViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    @objc
+    private func didTapLoginButton() {
+        
+        emailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        
+        guard let email = emailField.text, let password = passwordField.text,
+              !email.isEmpty, !password.isEmpty, password.count >= 6 else {
+            alertUserLoginError()
+            return
+        }
+        //TODO: FireBase Login
+    }
+    
+   private func alertUserLoginError() {
+        let alert = UIAlertController(title: "Woops",
+                                      message: "Please enter all Info to Log in",
+                                      preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "Dissmiss",
+                                  style: .cancel,
+                                  handler: nil))
+    present(alert, animated: true)
+    
+    }
+    
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailField {
+            passwordField.becomeFirstResponder()
+        } else if textField == passwordField {
+            didTapLoginButton()
+        }
+        return true
+    }
 }

@@ -92,7 +92,7 @@ class RegisterViewController: UIViewController {
     }()
     
     private let registerButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton()
         button.setTitle("Register", for: .normal)
         button.backgroundColor = .systemGreen
         button.setTitleColor(.white, for: .normal)
@@ -110,7 +110,7 @@ class RegisterViewController: UIViewController {
         registerDelegate()
     }
     
- 
+    
     // MARK: - UI Method
     private func setupUI() {
         addSubView()
@@ -141,31 +141,31 @@ class RegisterViewController: UIViewController {
                                   height: 52)
         
         passwordField.frame = CGRect(x: 30,
-                                  y: emailField.bottom + 10,
-                                  width: scrollView.width - 60,
-                                  height: 52)
+                                     y: emailField.bottom + 10,
+                                     width: scrollView.width - 60,
+                                     height: 52)
         
         firstNameField.frame = CGRect(x: 30,
-                                  y: passwordField.bottom + 10,
-                                  width: scrollView.width - 60,
-                                  height: 52)
+                                      y: passwordField.bottom + 10,
+                                      width: scrollView.width - 60,
+                                      height: 52)
         
         lastNameField.frame = CGRect(x: 30,
-                                  y: firstNameField.bottom + 10,
-                                  width: scrollView.width - 60,
-                                  height: 52)
+                                     y: firstNameField.bottom + 10,
+                                     width: scrollView.width - 60,
+                                     height: 52)
         
         registerButton.frame = CGRect(x: 30,
-                                  y: lastNameField.bottom + 10,
-                                  width: scrollView.width - 60,
-                                  height: 52)
+                                      y: lastNameField.bottom + 10,
+                                      width: scrollView.width - 60,
+                                      height: 52)
         
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         dismiss(animated: true, completion: nil)
     }
-
+    
     private func registerDelegate() {
         emailField.delegate = self
         passwordField.delegate = self
@@ -181,23 +181,23 @@ class RegisterViewController: UIViewController {
         scrollView.addSubview(lastNameField)
         imageView.isUserInteractionEnabled = true
         scrollView.isUserInteractionEnabled = true
-       
+        
     }
-
+    
     private func addButtonAction() {
         registerButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
     }
     
     
-   private func alertUserRegisterError() {
+    private func alertUserRegisterError(message: String = "Please enter Info to Continue") {
         let alert = UIAlertController(title: "Woops",
-                                      message: "Please enter all Info to Create Account",
+                                      message: message,
                                       preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: "Dissmiss",
-                                  style: .cancel,
-                                  handler: nil))
-    present(alert, animated: true)
-    
+        alert.addAction(UIAlertAction(title: "Dissmiss",
+                                      style: .cancel,
+                                      handler: nil))
+        present(alert, animated: true)
+        
     }
     
     // MARK: - Gesture
@@ -228,19 +228,36 @@ class RegisterViewController: UIViewController {
               !lastName.isEmpty,
               password.count >= 6 else {
             alertUserRegisterError()
+            
             return
         }
+        let user = ChatAppUser(firstName: firstName, lastName: lastName, emailAddress: email)
         /// FireBase Log in
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
-            guard let result = authResult,
-                  error == nil else {
-                print("Current User is Error")
+        DataBaseManager.shared.userExists(with: user.safeEmail) { [weak self] (exists) in
+            guard let strongSelf = self else { return }
+            guard !exists else {
+                /// user already exists
+                strongSelf.alertUserRegisterError(message: "Looks like a user Account for that email address doesn't exists")
                 return
+
             }
             
-            let user = result.user
-            print("Create User: \(user)")
+            Auth.auth().createUser(withEmail: email, password: password) { [weak self] (authResult, error) in
+                
+                guard let strongSelf = self,
+                      authResult != nil,
+                      error == nil else {
+                    print("Current User is Error")
+                    return
+                }
+                
+                DataBaseManager.shared.insertUser(with: user)
+                
+                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            }
         }
+        
+        
         
     }
     
@@ -291,8 +308,8 @@ extension RegisterViewController: UIImagePickerControllerDelegate {
         present(actionSheet, animated: true)
     }
     
-  
-   
+    
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         print("\(info)")

@@ -29,6 +29,8 @@
 		ADC2EBAF258B259B00611349 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADC2EBAE258B259B00611349 /* GoogleService-Info.plist */; };
 		ADC2EBD4258B321B00611349 /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2EBD3258B321B00611349 /* DataBaseManager.swift */; };
 		ADC2EC25258B38E400611349 /* ChatAppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2EC24258B38E400611349 /* ChatAppUser.swift */; };
+		ADC2EC3E258B4E3400611349 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2EC3D258B4E3400611349 /* MainTableViewController.swift */; };
+		ADC2EC46258B540C00611349 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC2EC45258B540C00611349 /* ProfileTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		ADC2EBAE258B259B00611349 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ADC2EBD3258B321B00611349 /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
 		ADC2EC24258B38E400611349 /* ChatAppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAppUser.swift; sourceTree = "<group>"; };
+		ADC2EC3D258B4E3400611349 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		ADC2EC45258B540C00611349 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		D5CA7192C03ACA4A2404934B /* Pods_Real_Time_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Real_Time_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3E46507C76E617BC54ECC09 /* Pods-Real-Time-Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Real-Time-Chat.debug.xcconfig"; path = "Target Support Files/Pods-Real-Time-Chat/Pods-Real-Time-Chat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -201,12 +205,13 @@
 		ADC2EA1B2589DA5800611349 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				ADC2EC3C258B4E1900611349 /* TabBar */,
 				ADC2EB91258AF0C000611349 /* Chat */,
 				ADC2EA752589E4C100611349 /* ChannelViewController.swift */,
 				ADC2EB90258AF0A000611349 /* Login */,
 				ADC2EB12258AEC6F00611349 /* PhotoViewerViewController.swift */,
 				ADC2EB17258AEC7C00611349 /* VideoPlayerViewController.swift */,
-				ADC2EB21258AECA800611349 /* ProfileViewController.swift */,
+				ADC2EC4A258B541400611349 /* Profile */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -253,6 +258,23 @@
 				ADC2EBD3258B321B00611349 /* DataBaseManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		ADC2EC3C258B4E1900611349 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				ADC2EC3D258B4E3400611349 /* MainTableViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		ADC2EC4A258B541400611349 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				ADC2EB21258AECA800611349 /* ProfileViewController.swift */,
+				ADC2EC45258B540C00611349 /* ProfileTableViewCell.swift */,
+			);
+			name = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,6 +453,8 @@
 			files = (
 				ADC2EB0E258AEC4000611349 /* RegisterViewController.swift in Sources */,
 				ADC2E9EB2589DA2500611349 /* ChatViewController.swift in Sources */,
+				ADC2EC3E258B4E3400611349 /* MainTableViewController.swift in Sources */,
+				ADC2EC46258B540C00611349 /* ProfileTableViewCell.swift in Sources */,
 				ADC2EAA9258AE20500611349 /* Sender.swift in Sources */,
 				ADC2EAA4258A12D000611349 /* Chat.swift in Sources */,
 				ADC2EBD4258B321B00611349 /* DataBaseManager.swift in Sources */,

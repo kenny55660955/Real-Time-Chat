@@ -16,7 +16,7 @@ class ChatViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "Chats"
         view.backgroundColor = .yellow
         
         
@@ -41,11 +41,6 @@ class ChatViewController: UIViewController {
         }
     }
     // MARK: - Objc
-    @objc
-    private func loginAction() {
-        print("Hello")
-    }
-
 
 }
 

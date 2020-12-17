@@ -26,14 +26,17 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        view.backgroundColor = .yellow
-        setupTextField()
-        setupButton()
         
-//        auth()
+        view.backgroundColor = .yellow
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        checkUserDefault()
+    }
+    
+    
     // MARK: - SetupUI
     private func setupTextField() {
         view.addSubview(textField)
@@ -68,28 +71,21 @@ class ChatViewController: UIViewController {
         sendButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
         
     }
+    
+    // MARK: - UserDefault
+    func checkUserDefault() {
+        let isLoggIn = UserDefaults.standard.bool(forKey: "logged_in")
+        if !isLoggIn {
+            let vc = LoginViewController()
+            let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
+            present(nav, animated: false)
+        }
+    }
     // MARK: - Objc
     @objc
     private func loginAction() {
-//        auth()
-//        GIDSignIn.sharedInstance()?.signIn()
         print("Hello")
-    }
-    
-    // MARK: - Auth
-    private func auth() {
-        
-        Auth.auth().signInAnonymously { (authResult, error) in
-            
-            guard let user = authResult?.user else { return }
-            let isAnonymous = user.isAnonymous
-            let uid = user.uid
-            
-            print(user.displayName)
-            print(user.email)
-            print(user.phoneNumber)
-            print(user.uid)
-        }
     }
 
 

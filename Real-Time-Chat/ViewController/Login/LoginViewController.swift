@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FBSDKLoginKit
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
     
@@ -74,8 +75,17 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+    private let googleLogInButton: GIDSignInButton = {
+        let button = GIDSignInButton()
+        return button
+    }()
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupGoogle()
+        
+        addNotifiCation()
         
         addSubView()
         
@@ -86,6 +96,12 @@ class LoginViewController: UIViewController {
         addButtonAction()
         
         registerDelegate()
+    }
+
+    deinit {
+        /// 畫面消失移除Notification
+        NotificationCenter.default.removeObserver(Notification.Name.didLogInNotification)
+        print("did deinit")
     }
     
     
@@ -119,6 +135,10 @@ class LoginViewController: UIViewController {
                                      y: loginButton.bottom + 10,
                                      width: scrollView.width - 60,
                                      height: 52)
+        googleLogInButton.frame = CGRect(x: 30,
+                                         y: fbLoginButton.bottom + 10,
+                                         width: scrollView.width - 60,
+                                         height: 52)
         
     }
     
@@ -147,13 +167,23 @@ class LoginViewController: UIViewController {
         scrollView.addSubview(passwordField)
         scrollView.addSubview(loginButton)
         scrollView.addSubview(fbLoginButton)
+        scrollView.addSubview(googleLogInButton)
     }
     
     private func addButtonAction() {
         loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
     }
     
-    
+    // MARK: - Google
+    private func setupGoogle() {
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+    }
+    private func addNotifiCation() {
+        NotificationCenter.default.addObserver(forName: .didLogInNotification, object: nil, queue: .main) { [weak self] (_) in
+            guard let self = self else { return }
+            self.navigationController?.dismiss(animated: true, completion: nil)
+        }
+    }
     // MARK: - objc Method
     @objc
     private func didTapRegister() {
